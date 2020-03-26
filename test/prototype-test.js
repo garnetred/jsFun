@@ -107,7 +107,7 @@ describe("PROTOTYPES", () => {
       }])
     })
   }), describe("Cake Prompts", () => {
-    it("stockPerCake", () => {
+    it.only("stockPerCake", () => {
       const e = cakePrompts.stockPerCake();
       expect(e).to.deep.equal([{
         flavor: "dark chocolate",

@@ -27,17 +27,22 @@ const kittyPrompts = {
 
     // Return an array of just the names of kitties who are orange e.g.
     // ['Tiger', 'Snickers']
-    const result = 'REPLACE WITH YOUR RESULT HERE';
+    let orangeKitties = kitties.filter(kitty => kitty.color === 'orange');
+    const result = orangeKitties.map(kitty => kitty.name);
+    console.log(result);
     return result;
 
     // Annotation:
     // Write your annotation here as a comment
+    //Because we want to go through the data set and return a new array of cats
+    //that are orange, I first used the filter method and assigned the result
+    //to a variable.
+    //Then, I used the map method on the result in order to return just the names.
   },
 
   sortByAge() {
     // Sort the kitties by their age
-
-    const result = 'REPLACE WITH YOUR RESULT HERE';
+    const result = kitties.sort((a, b) => b.age-a.age);
     return result;
 
     // Annotation:
@@ -58,7 +63,26 @@ const kittyPrompts = {
     // },
     // ...etc]
 
-    const result = 'REPLACE WITH YOUR RESULT HERE';
+    // const result = kitties.map(kitty => ({age: kitty.age + 2})).sort((a,b) => b.age-a.age);
+    // kitty.age += 2;
+
+    //destructuring
+
+
+
+    // const ageKitties = kitties.map(kitty => {
+    //   return {name: kitty.name, age: kitty.age +2, color: kitty.color}
+    // });
+    // const result = ageKitties
+    // return result;
+
+    const [kitty1, kitty2, kitty3, kitty4] = kitties.map(kitty => kitty.age = kitty.age + 2);
+
+    kitties.sort((a,b) => b.age - a.age);
+    //so kitty1 is basically let kitty1 = kitties[0]
+
+    const result = kitties;
+    //
     return result;
   }
 };
@@ -90,8 +114,10 @@ const clubPrompts = {
     //   ...etc
     // }
 
-    const result = 'REPLACE WITH YOUR RESULT HERE';
-    return result;
+
+
+    // const result = 'REPLACE WITH YOUR RESULT HERE';
+    // return result;
 
     // Annotation:
     // Write your annotation here as a comment
@@ -125,25 +151,18 @@ const modPrompts = {
     //   { mod: 3, studentsPerInstructor: 10 },
     //   { mod: 4, studentsPerInstructor: 8 }
     // ]
-
-    const result = 'REPLACE WITH YOUR RESULT HERE';
+    mods.map(mod => mod.studentsPerInstructor = mod.students/mod.instructors);
+    mods.forEach(mod => delete mod.students);
+    mods.forEach(mod => delete mod.instructors);
+    const result = mods;
     return result;
-
-    // Annotation:
-    // Write your annotation here as a comment
   }
 };
 
-
-
-
-
-
-// ---------------------------------------------------------------------------
-// ---------------------------------------------------------------------------
-// ---------------------------------------------------------------------------
-// ---------------------------------------------------------------------------
-// ---------------------------------------------------------------------------
+// First, I used the map array iterator to create a new property that was the
+// number of students divided by the instructors.
+// Then, I created a forEach loop that would delete the extra key in the new array.
+// Finally, I set the array equal to the variable result and returned it.
 
 
 
@@ -160,8 +179,12 @@ const cakePrompts = {
     //    { flavor: 'yellow', inStock: 14 },
     //    ..etc
     // ]
-
-    const result = 'REPLACE WITH YOUR RESULT HERE';
+    cakes.map(cake => cake.flavor = cake.cakeFlavor);
+    cakes.map(cake => delete cake.filling);
+    cakes.map(cake => delete cake.cakeFlavor);
+    cakes.map(cake => delete cake.frosting);
+    cakes.map(cake => delete cake.toppings);
+    const result = cakes;
     return result;
 
     // Annotation:
